@@ -1,0 +1,174 @@
+{# zfk modify on 2017-08-14 #}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/css/preview-dev.css" rel="stylesheet" type="text/css">
+
+    <title>大学生问卷调查</title>
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="/static/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/static/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="/static/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="/static/css/animate.css" rel="stylesheet">
+    <link href="/static/css/style.css?v=4.1.0" rel="stylesheet">
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/dw/address.js"></script>
+    <style type="text/css">
+        label.error {
+            color: #C40000;
+            /* 	font-weight: bold; */
+            background: transparent url(/static/images/error.png) no-repeat scroll 0px -1px;
+            padding-left: 18px;
+            /* font: 12px Arial,Helvetica,sans-serif; */
+            font-size:12px;
+            line-height: 1.62;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>{{ wj_name }}</h2>
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <form id="bbform"  method="post" action='' class="form-horizontal">
+                        <input type="hidden" name="wjid" value="{{ wj_id }}">
+                            {% for i in wj_data %}
+                                <div class="form-group">
+                                    {% if i.wenti_type == 1 %}
+                                        <div class="col-sm-10">
+                                            <input type="hidden"  class="quId" value="{{ i.wenti_id }}">
+                                            <input type="hidden"  class="quType" value="RADIO">
+                                            <h4>{{ i.wenti_xuhao }}.{{ i.wenti_name }}</h4>
+                                            <div class="quesitem">
+                                                {% for j in i.wenti_data  %}
+                                                    <div  class="radio i-checks">
+                                                        <input type="hidden" class="choiceId" value="{{ j.xuanxiang_id }}"  >
+                                                        <label>
+                                                            <input type="radio" name="{{ i.wenti_xuhao }}" value="{{ j.xuanxiang_id }}" > <i></i> {{ j.xuanxiang_name }}
+                                                        </label>
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if i.wenti_type == 2 %}
+                                        <div class="col-sm-10">
+                                            <input type="hidden" class="quId" value="{{ i.wenti_id }}">
+                                            <input type="hidden" class="quType" value="CHECKBOX">
+                                            <h4>{{ i.wenti_xuhao }}.{{ i.wenti_name }}</h4>
+                                            <div class="quesitem">
+                                                {% for j in i.wenti_data  %}
+                                                    <div  class="checkbox i-checks">
+                                                        <input type="hidden" class="choiceId" value="{{ j.xuanxiang_id }}"  >
+                                                        <label>
+                                                            <input type="checkbox" name="{{ i.wenti_xuhao }}" value="{{ j.xuanxiang_id }}"> <i></i> {{ j.xuanxiang_name }}
+                                                        </label>
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if i.wenti_type == 3 %}
+                                        <div class="col-sm-10">
+                                            <input type="hidden" class="quId" value="{{ i.wenti_id }}">
+                                            <input type="hidden" class="quType" value="TEXT">
+                                            <h4>{{ i.wenti_xuhao }}.{{ i.wenti_name }}</h4>
+                                            <div class="quesitem">
+                                                <input type="text" name="{{ i.wenti_xuhao }}" class="form-control">
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if i.wenti_type == 4 %}
+                                        <div class="col-sm-10">
+                                            <input type="hidden" class="quId" value="{{ i.wenti_id }}">
+                                            <input type="hidden" class="quType" value="SCORE">
+                                            <h4>{{ i.wenti_xuhao }}.{{ i.wenti_name }}</h4>
+                                            <div class="quesitem">
+                                                <table class="quCoItemTable" cellpadding="0" cellspacing="0">
+                                                    {% for j in i.wenti_data  %}
+                                                        <tr class="quScoreOptionTr">
+                                                            <td class="quCoItemTableTd quOptionEditTd">
+                                                                <label class="editAble quCoOptionEdit">{{ j.xuanxiang_name }}</label>
+            {#                                            <input class="dwScoreOptionId" value="8a29dbf25dc24651015dc6f3fdd50204" disabled="disabled" type="hidden"/>#}
+                                                                <input type="hidden" class="answerTag" value="0" >
+                                                            </td>
+                                                            <td class="quCoItemTableTd">
+                                                                <table class="scoreNumTable" border="0" cellspacing="0" cellpadding="1" ><tr><td style="background-color: white;">1</td><td style="background-color: white;">2</td><td style="background-color: white;">3</td><td style="background-color: white;">4</td><td style="background-color: white;">5</td></tr></table>
+                                                                <input name="{{ i.wenti_xuhao }}" value=""  type="hidden" class="scoreNumInput" >
+                                                            </td>
+                                                            <td class="quCoItemTableTd scoreNumText">分</td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                </table>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if i.wenti_type == 5 %}
+                                        <div class="col-sm-10">
+                                            <input type="hidden" class="quId" value="{{ i.wenti_id }}">
+                                            <input type="hidden" class="quType" value="SCHOOL">
+                                            <h4>{{ i.wenti_xuhao }}.{{ i.wenti_name }}</h4>
+                                            <div class="quesitem">
+                                                <select style="padding: 5px;" class="hat_province"><option>--选择省--</option> </select>
+    											<select style="padding: 5px;" class="hat_city"><option>--选择学校--</option> </select>
+                                                <input type="hidden" name="{{ i.wenti_xuhao }}" class="form-control schooloo">
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if i.wenti_type == 6 %}
+                                        <div class="col-sm-10">
+                                            <input type="hidden" class="quId" value="{{ i.wenti_id }}">
+                                            <input type="hidden" class="quType" value="PROVINCE">
+                                            <h4>{{ i.wenti_xuhao }}.{{ i.wenti_name }}</h4>
+                                            <div class="quesitem">
+                                                <select style="padding: 5px;" class="sin_province"><option>--选择省--</option> </select>
+                                                <input type="hidden" name="{{ i.wenti_xuhao }}" class="form-control cityoo">
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if i.wenti_type == 7 %}
+                                        <div class="col-sm-10">
+                                            <input type="hidden" class="quId" value="{{ i.wenti_id }}">
+                                            <input type="hidden" class="quType" value="XUEWEI">
+                                            <h4>{{ i.wenti_xuhao }}.{{ i.wenti_name }}</h4>
+                                            <div class="quesitem">
+                                                <select style="padding: 5px;" class="xuewei"><option>--选择学位--</option> </select>
+                                                <input type="hidden" name="{{ i.wenti_xuhao }}" class="form-control xw">
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                            {% endfor %}
+                            <button id="submits" class="btn btn-primary block full-width m-b">提交</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- 全局js -->
+    <script src="/static/js/jquery.min.js?v=2.1.4"></script>
+    <script src="/static/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="/static/js/wjfabu.js"></script>
+
+
+    <!-- iCheck -->
+    <script src="/static/js/plugins/iCheck/icheck.min.js"></script>
+
+
+
+</body>
+
+</html>

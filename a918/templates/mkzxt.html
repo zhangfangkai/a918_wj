@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>H+ 后台主题UI框架 - 基本表单</title>
+    <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
+    <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="/static/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/static/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="/static/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="/static/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="/static/css/animate.css" rel="stylesheet">
+    <link href="/static/css/style.css?v=4.1.0" rel="stylesheet">
+
+
+
+</head>
+<body>
+ <div class="row">
+
+  <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>事件</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="buttons.html#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="buttons.html#">选项1</a>
+                            </li>
+                            <li><a href="buttons.html#">选项2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="col-sm-6">
+                        <div id="treeview11" class="test"></div>
+                    </div>
+                    <div class="col-sm-6">
+                        <h5>变量列表：</h5>
+                        <button id="submit" class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"><strong>提交</strong>
+                        </button>
+                        <hr>
+                         <table id="seletable" data-toggle="table" data-classes="table table-hover" data-height="350" data-click-to-select="true" data-mobile-responsive="true" data-show-footer="true">
+                                    <thead>
+                                        <tr>
+                                            <th data-field="id" >id</th>
+                                            <th data-field="type" >type</th>
+                                            <th data-field="wjname">问卷</th>
+                                            <th data-field="qcon" >题目</th>
+                                            <th data-field="con">选项</th>
+                                        </tr>
+                                    </thead>
+
+                         </table>
+
+                        <h5>筛选列表：</h5>
+                        <hr>
+                         <table id="filttable" data-toggle="table" data-classes="table table-hover" data-height="350" data-click-to-select="true" data-mobile-responsive="true" data-show-footer="true">
+                                    <thead>
+                                        <tr>
+                                            <th data-field="id" >id</th>
+                                            <th data-field="type" >type</th>
+                                            <th data-field="wjname">问卷</th>
+                                            <th data-field="qcon" >题目</th>
+                                            <th data-field="con">选项</th>
+                                            <th data-field="qid">qid</th>
+                                        </tr>
+                                    </thead>
+                         </table>
+
+                    </div>
+                    <div class="clearfix"></div>
+
+                </div>
+            </div>
+        </div>
+ </div>
+ </div>
+
+
+ <div id="modal-form" class="modal fade" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                              <div class="wrapper wrapper-content animated fadeInRight">
+                                  <div class="ibox float-e-margins">
+                        <!-- Example Checkbox Select -->
+                        <div class="ibox-content">
+                             <div class="row row-lg">
+                                 <div class="example-wrap">
+                            <h4 class="example-title">复选框</h4>
+                            <div class="example">
+                                <table id="optiontable" data-toggle="table" data-classes="table table-hover" data-height="300" data-click-to-select="true" data-mobile-responsive="true" data-show-footer="true">
+                                    <thead>
+                                        <tr>
+                                            <th data-field="state" data-checkbox="true"></th>
+                                            <th data-field="id" >id</th>
+                                            <th data-field="type" >type</th>
+                                            <th data-field="con">选项</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            </div>
+                        </div>
+                                  </div>
+                              </div>
+                              </div>
+                    </div>
+                     <div>
+            <div><button id="additem" class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"><strong>添加为变量</strong>
+            </button>
+            </div>
+{#                         </br></br></br>#}
+                <button id="addand"  class="btn btn-sm btn-primary pull-left m-t-n-xs" type="submit"><strong>添加为过滤条件</strong>
+            </button>
+{#                <button id="addor"  class="btn btn-sm btn-primary pull-left m-t-n-xs" type="submit"><strong>添加为"或"过滤条件</strong>#}
+{#            </button>#}
+
+        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- 全局js -->
+     <script src="/static/js/jquery.min.js?v=2.1.4"></script>
+     <script src="/static/js/bootstrap.min.js?v=3.3.6"></script>
+     <script src="/static/js/plugins/treeview/bootstrap-treeview.js"></script>
+
+         <!-- Bootstrap table -->
+    <script src="/static/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="/static/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+    <script src="/static/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+         <!-- Peity -->
+{#    <script src="/static/js/demo/bootstrap-table-demo.js"></script>#}
+
+    <script>
+$.extend({
+    StandardPost:function(url,args){
+        var body = $(document.body),
+            form = $("<form method='post'></form>"),
+            input;
+        form.attr({"action":url});
+        $.each(args,function(key,value){
+            input = $("<input type='hidden'>");
+            input.attr({"name":key});
+            input.val(value);
+            form.append(input);
+        });
+
+        form.appendTo(document.body);
+        form.submit();
+        document.body.removeChild(form[0]);
+    }
+});
+
+$(function () {
+
+        $('#seletable').bootstrapTable('hideColumn','id');
+         $('#seletable').bootstrapTable('hideColumn','type');
+        $('#filttable').bootstrapTable('hideColumn','id');
+         $('#filttable').bootstrapTable('hideColumn','type');
+
+        var jsonn = {{ Quli| safe }}
+        var wj = {{ wjlist| safe }}
+
+        $('#treeview11').treeview({
+        color: "#428bca",
+        data:jsonn,
+        onNodeSelected: function (event, node) {
+            var qid = node.tags;
+            var qcon = node.text;
+            var idLi = new Array()
+            if ( qid.indexOf("&") >= 0){
+                idLi = qid.split("&")
+                var wjname = wj[idLi[0].toString()]
+            } else{
+                var wjname = wj[node.tags]
+            }
+
+            $.post("options/",{'qid':qid.toString(),'qcon':qcon.toString(),'wjname':wjname.toString()}, function(ret){
+                var optiondata= JSON.parse(ret.toString())
+                $('#optiontable').bootstrapTable('destroy');
+                $("#optiontable").bootstrapTable({
+                    data:optiondata
+                })
+                $('#optiontable').bootstrapTable('hideColumn', 'id');
+                $('#optiontable').bootstrapTable('hideColumn', 'type');
+        })
+            $('#modal-form').attr("class","modal fade in");
+            $('#modal-form').attr("style","display: block;");
+
+            $('#additem').unbind('click').click(function () {
+                 $('#modal-form').attr("style","display:none;");
+
+             var seletion = $('#optiontable').bootstrapTable('getSelections');
+             $('#seletable').bootstrapTable("append",seletion)
+            })
+            $('#seletable').on('click-row.bs.table', function (e, row, element) {
+                $('#seletable').bootstrapTable('remove', {
+                    field: 'id',
+                    values: [row.id]
+                });
+            })
+
+            $('#addand').unbind('click').click(function () {
+                 $('#modal-form').attr("style","display:none;");
+
+             var seletion = $('#optiontable').bootstrapTable('getSelections');
+             for (i in seletion){
+                 seletion[i]["qid"] = qid.toString()
+             }
+             $('#filttable').bootstrapTable("append",seletion)
+            })
+            $('#filttable').on('click-row.bs.table', function (e, row, element) {
+                $('#filttable').bootstrapTable('remove', {
+                    field: 'id',
+                    values: [row.id]
+                });
+            })
+{#            $('#addor').unbind('click').click(function () {#}
+{#                 $('#modal-form').attr("style","display:none;");#}
+{##}
+{#             var seletion = $('#optiontable').bootstrapTable('getSelections');#}
+{#             for (i in seletion){#}
+{#                 seletion[i]["rel"] = "或"#}
+{#             }#}
+{#             $('#filttable').bootstrapTable("append",seletion)#}
+{#            })#}
+        }
+    });
+{#        $('#treeview11').treeview('',)#}
+        $('#submit').click(function () {
+            var temp = $('#seletable').bootstrapTable('getData')
+            var sublist = new Array()
+            var typelist = ""
+            var idlist=""
+            var conlist = ""
+
+            var temp2 = $('#filttable').bootstrapTable('getData')
+            var typelist2 = ""
+            var idlist2=""
+            var conlist2 = ""
+            var qidlist2 = ""
+
+            for (i in temp) {
+{#                console.log(temp[i]['id'])#}
+                idlist = idlist + temp[i]['id'].toString() + ","
+                conlist = conlist + temp[i]['con']+","
+                typelist = typelist + temp[i]['type'].toString()+","
+            }
+
+            for (i in temp2) {
+{#                console.log(temp[i]['id'])#}
+                idlist2 = idlist2 + temp2[i]['id'].toString() + ","
+                conlist2 = conlist2 + temp2[i]['con']+","
+                typelist2 = typelist2 + temp2[i]['type'].toString()+","
+                qidlist2 = qidlist2 + temp2[i]['qid'].toString()+","
+            }
+
+            sublist[1] = idlist
+            sublist[2] = conlist
+            sublist[3] = typelist
+            sublist[4] = idlist2
+            sublist[5] = conlist2
+            sublist[6] = typelist2
+            sublist[7] = qidlist2
+
+            console.log(idlist)
+                           $.StandardPost('subvari',sublist)
+            })
+
+
+        })
+
+
+    </script>
+
+
+</body>
+</html>

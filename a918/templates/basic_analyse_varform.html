@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>H+ 后台主题UI框架 - 基本表单</title>
+    <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
+    <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="/static/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/static/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="/static/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="/static/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="/static/css/animate.css" rel="stylesheet">
+    <link href="/static/css/style.css?v=4.1.0" rel="stylesheet">
+
+
+
+</head>
+<body>
+ <div class="row">
+
+  <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>事件</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="buttons.html#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="buttons.html#">选项1</a>
+                            </li>
+                            <li><a href="buttons.html#">选项2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="col-sm-6">
+                        <div id="treeview11" class="test"></div>
+                    </div>
+                    <div class="col-sm-6">
+                        <h5>事件输出：</h5>
+                        <hr>
+                         <table id="seletable" data-toggle="table" data-classes="table table-hover" data-height="400" data-click-to-select="true" data-mobile-responsive="true" data-show-footer="true">
+                                    <thead>
+                                        <tr>
+                                            <th data-field="id" >id</th>
+                                            <th data-field="question"></th>
+                                            <th data-field="con">筛选条件</th>
+                                            <th data-field="del">删除</th>
+                                        </tr>
+                                    </thead>
+                         </table>
+                        <table id="seletablex" data-toggle="table" data-classes="table table-hover" data-height="400" data-click-to-select="true" data-mobile-responsive="true" data-show-footer="true">
+                                    <thead>
+                                        <tr>
+                                            <th data-field="id" >id</th>
+                                            <th data-field="question"></th>
+                                            <th data-field="con">X变量</th>
+                                            <th data-field="del">删除</th>
+                                        </tr>
+                                    </thead>
+                         </table>
+                        <table id="seletabley" data-toggle="table" data-classes="table table-hover" data-height="400" data-click-to-select="true" data-mobile-responsive="true" data-show-footer="true">
+                                    <thead>
+                                        <tr>
+                                            <th data-field="id" >id</th>
+                                            <th data-field="question"></th>
+                                            <th data-field="con">Y变量</th>
+                                            <th data-field="del">删除</th>
+                                        </tr>
+                                    </thead>
+                         </table>
+                        <br/>
+                         <input type="submit" id="submit" class="btn btn-sm btn-primary pull-right m-t-n-xs">
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+ </div>
+ </div>
+
+
+ <div id="modal-form" class="modal fade" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                              <div class="wrapper wrapper-content animated fadeInRight">
+                                  <div class="ibox float-e-margins">
+                        <!-- Example Checkbox Select -->
+                        <div class="ibox-content">
+                             <div class="row row-lg">
+                                 <div class="example-wrap">
+                            <h4 class="example-title">复选框</h4>
+                            <div class="example">
+                                <table id="optiontable" data-toggle="table" data-classes="table table-hover" data-height="280" data-click-to-select="true" data-mobile-responsive="true" data-show-footer="true">
+{#                                    <thead>#}
+{#                                        <tr>#}
+{#                                            <th data-field="state" data-checkbox="true"></th>#}
+{#                                            <th data-field="id" >id</th>#}
+{#                                            <th data-field="question">问题</th>#}
+{#                                            <th data-field="con">选项</th>#}
+{#                                            <th data-field="del">删除</th>#}
+{#                                        </tr>#}
+{#                                    </thead>#}
+                                </table>
+                            </div>
+                            </div>
+                        </div>
+                                  </div>
+                              </div>
+                              </div>
+                    </div>
+                     <div>
+            <div><button id="additem" class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"><strong>添加筛选条件</strong></button></div>
+            <div><button id="additemx" class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"><strong>添加X变量</strong></button></div>
+            <div><button id="additemy" class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"><strong>添加Y变量</strong></button></div>
+
+        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- 全局js -->
+     <script src="/static/js/jquery.min.js?v=2.1.4"></script>
+     <script src="/static/js/bootstrap.min.js?v=3.3.6"></script>
+     <script src="/static/js/plugins/treeview/bootstrap-treeview.js"></script>
+
+         <!-- Bootstrap table -->
+    <script src="/static/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="/static/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+    <script src="/static/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+         <!-- Peity -->
+{#    <script src="/static/js/demo/bootstrap-table-demo.js"></script>#}
+
+    <script>
+        $.extend({
+    StandardPost:function(url,args){
+        var body = $(document.body),
+            form = $("<form method='post'></form>"),
+            input;
+        form.attr({"action":url});
+        $.each(args,function(key,value){
+            input = $("<input type='hidden'>");
+            input.attr({"name":key});
+            input.val(value);
+            form.append(input);
+        });
+
+        form.appendTo(document.body);
+        form.submit();
+        document.body.removeChild(form[0]);
+    }
+});
+
+$(function () {
+        $('#seletable').bootstrapTable('hideColumn','id');
+        $('#seletablex').bootstrapTable('hideColumn','id');
+        $('#seletabley').bootstrapTable('hideColumn','id');
+
+        var jsonn = {{ Quli|safe }}
+        $('#treeview11').treeview({
+        color: "#428bca",
+        data:jsonn,
+        onNodeSelected: function (event, node) {
+            var qid = node.tags;
+            $.post("analyse_options/",{'qid':qid.toString()}, function(ret){
+                var optiondata= JSON.parse(ret.toString());
+
+                $('#optiontable').bootstrapTable('destroy');
+                $("#optiontable").bootstrapTable({
+                     columns : [
+                         {checkbox: true
+                         }, {
+                            field: 'id',
+                            title: 'id'
+                         }, {
+                            field: 'question',
+                            title: ''
+                        }, {
+                            field: 'con',
+                            title: '选项'
+                        }, {
+                            field: 'del',
+                            title: '删除',
+                        }, ],
+                    data:optiondata,
+                })
+
+                $('#optiontable').bootstrapTable('hideColumn', 'del');
+                $('#optiontable').bootstrapTable('hideColumn', 'id');
+                $('#optiontable').bootstrapTable('hideColumn', 'question');
+        })
+            $('#modal-form').attr("class","modal fade in");
+            $('#modal-form').attr("style","display: block;");
+
+            $('#additem').unbind('click').click(function () {
+                 $('#modal-form').attr("style","display:none;");
+{#                 var sel =  $.map($('#optiontable').bootstrapTable('getSelections'), function(row) {#}
+{#                    return row.id#}
+{#                })#}
+{#                var con =  $.map($('#optiontable').bootstrapTable('getSelections'), function(row) {#}
+{#                    return row.con#}
+{#                })#}
+             var seletion = $('#optiontable').bootstrapTable('getSelections');
+             $('#seletable').bootstrapTable("append",seletion)
+            })
+            $('#seletable').on('click-row.bs.table', function (e, row, element) {
+                $('#seletable').bootstrapTable('remove', {
+                    field: 'id',
+                    values: [row.id]
+                });
+            })
+            $('#seletablex').on('click-row.bs.table', function (e, row, element) {
+                $('#seletablex').bootstrapTable('remove', {
+                    field: 'id',
+                    values: [row.id]
+                });
+            })
+            $('#seletabley').on('click-row.bs.table', function (e, row, element) {
+                $('#seletabley').bootstrapTable('remove', {
+                    field: 'id',
+                    values: [row.id]
+                });
+            })
+
+
+            $('#additemx').unbind('click').click(function () {
+
+                 $('#modal-form').attr("style","display:none;");
+             var seletion = $('#optiontable').bootstrapTable('getSelections')
+             seletion[0]['con'] = seletion[0]['question'].split(':')[1]
+             seletion[0]['question'] = seletion[0]['question'].split(':')[0]
+             $('#seletablex').bootstrapTable("append",seletion[0])
+            })
+
+
+            $('#additemy').unbind('click').click(function () {
+
+                 $('#modal-form').attr("style","display:none;");
+             var seletion = $('#optiontable').bootstrapTable('getSelections')
+             seletion[0]['con'] = seletion[0]['question'].split(':')[1]
+             seletion[0]['question'] = seletion[0]['question'].split(':')[0]
+             $('#seletabley').bootstrapTable("append",seletion[0])
+            })
+        }
+    });
+        $('#submit').click(function () {
+        var string1='';
+        var string2='';
+        var string3='';
+        var result1=$('#seletable').bootstrapTable('getData');
+        var result2=$('#seletablex').bootstrapTable('getData');
+        var result3=$('#seletabley').bootstrapTable('getData');
+        for (var x=0; x<result1.length; x++)
+        {
+            string1 += result1[x]['id'];
+            string1 += ',';
+        }
+        for (var x=0; x<result2.length; x++)
+        {
+            string2 += result2[x]['id'];
+            string2 += ',';
+        }
+        for (var x=0; x<result3.length; x++)
+        {
+            string3 += result3[x]['id'];
+            string3 += ',';
+        }
+
+        $.StandardPost('result', {"shaixuan":string1, "x":string2, "y":string3});
+    });
+});
+    </script>
+
+
+</body>
+</html>

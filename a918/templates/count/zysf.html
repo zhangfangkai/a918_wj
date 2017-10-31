@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>问卷数量查询系统</title>
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="/static/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/static/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+
+    <link href="/static/css/animate.css" rel="stylesheet">
+    <link href="/static/css/style.css?v=4.1.0" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row border-bottom">
+        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                        <h2>&nbsp&nbsp{{ wjname }}问卷数量统计</h2>
+            </div>
+
+        </nav>
+    </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>省份问卷数量统计表格</h5>
+                    </div>
+                    <div class="ibox-content">
+                    {% if length == 0 %}
+                        <h4>没有该条件下的问卷数据</h4>
+                    {% endif %}
+                    {% if length != 0 %}
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>省份名</th>
+                                    <th>问卷数量</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for i in li %}
+                                <tr>
+                                    <td>{{ i.index }}</td>
+                                    <td>{{ i.name }}</td>
+                                    <td>{{ i.num }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    {% endif %}
+                    </div>
+                </div>
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <h3>请选择省份</h3>
+                        {% for i in sf %}
+                            {% if i.num == 0 %}
+                                <a class="btn btn-w-m btn-default" href="/count/daxue?sfid={{ i.id }}&type=1&tp={{ tp }}">{{ i.name }}   {{ i.num }}</a>
+                            {% else %}
+                                <a class="btn btn-w-m btn-success" href="/count/daxue?sfid={{ i.id }}&type=1&tp={{ tp }}">{{ i.name }}   {{ i.num }}</a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>
+
+
+
+
+    <!-- 全局js -->
+    <script src="/static/js/jquery.min.js?v=2.1.4"></script>
+    <script src="/static/js/bootstrap.min.js?v=3.3.6"></script>
+
+
+
+
+</body>
+
+</html>
